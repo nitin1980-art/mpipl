@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MMTC-PAMP Store Kiosk</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+    }
+
+    .top-bar {
+      width: 100%;
+      background: #111;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    button {
+      cursor: pointer;
+      padding: 12px 20px;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      background: #C6A564; /* Gold-like shade */
+      color: #fff;
+      transition: 0.25s ease-in-out;
+    }
+
+    button.silver {
+      background: #C0C0C0; /* Silver shade */
+      color: #000;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    iframe {
+      position: absolute;
+      top: 60px;  /* height of top-bar */
+      left: 0;
+      width: 100%;
+      height: calc(100% - 60px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <button onclick="loadPage('gold')">Gold Products</button>
+    <button class="silver" onclick="loadPage('silver')">Silver Products</button>
+  </div>
+
+  <iframe id="shopFrame"
+    src="https://www.mmtcpamp.com/shop/gold"
+    title="MMTC-PAMP Shop">
+  </iframe>
+
+  <script>
+    function loadPage(type) {
+      let frame = document.getElementById('shopFrame');
+      if (type === 'gold') {
+        frame.src = "https://www.mmtcpamp.com/shop/gold";
+      } else {
+        frame.src = "https://www.mmtcpamp.com/shop/silver";
+      }
+    }
+  </script>
+
+</body>
+</html>
